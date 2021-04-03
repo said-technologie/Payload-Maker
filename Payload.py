@@ -1,44 +1,30 @@
-#payload maker 
+#payload maker
 #creat by RaMsY
 #payload v1.0
-
 ###############modules################
-import os 
-import time 
-import sys 
-import socket
+import os
+import time
+import sys
 from core.Paycore import *
 from core.banner import *
+import socket
 ############the programme############
 def payload():
     os.system("clear")
     banner_front()
     print("\033[36m                 ["+"\033[31m?"+"\033[36m]"+"\033[33m this version work only for linux systems")
+    print("\033[33m                                        type "+"\033[32m start "+"\033[33mto initialized the programme")
     while True:
+        options = ['start']
         p = input(" \033[36m  \n PaMake]=>> "+"\033[37m")
-        if p == "help":
+        if p in options :
+            print("\033[32m starting...")
             time.sleep(3)
-            print("\033[33m       "+r"  command                                          description")
-            print("\033[36m  "+r"      set payload                             use this command to creat a payload")
-            print("\033[36m  "+r"     show options                    it will show you what you have to do after creating a payload")
-            print("\033[36m  "+r"    show cre_chann                          it will show you all the creator of this script acount")
-            print("\033[32m                     subscribe to my youtube channel please")
-            print("\033[36m  "+r"        help                                     it will show you this help menu")
-            print("\033[36m  "+r"        clear                                       it will clear the window")
-            print("\033[36m  "+r"        exit                                       it will exit the programme")
-        if p == "set payload":
-            paymak()
-        elif p == "show options":
-            command()
-        elif p == "show cre_chann":
-            youtube()
-        elif p == "clear":
-            os.system("clear")  
+            start()
         elif p == "exit":
-            print("\033[36m  ["+"\033[31m-"+"\033[36m]" +"\033[33m exiting...  "+"\033[37m")
-            time.sleep(3)
-            print("\033[36m  ["+"\033[32m+"+"\033[36m]"+"\033[32m Thanks for using Payload-Maker"+"\033[37m")
             sys.exit()
-
+        else :
+            print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+p+"\033[31m it not found")
+            print("\033[36m ["+"\033[32m+"+"\033[36m]"+"\033[33m"+"\033[33m type "+"\033[32m start "+"\033[33mto initialized the programme")
 if __name__ == "__main__":
-	payload()
+    payload()
