@@ -7,7 +7,17 @@ import time
 import sys
 from core.Paycore import *
 from core.banner import *
-import socket
+import subprocess
+import pkg_resources
+from connection_cheeker import connection
+###########cheking the  modules#########
+required = {'socket', 'webbrowser'}
+installed = {pkg.key for pkg in pkg_resources.working_set}
+missing = required - installed
+
+if missing:
+    python = sys.executable
+    subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
 ############the programme############
 def payload():
     os.system("clear")

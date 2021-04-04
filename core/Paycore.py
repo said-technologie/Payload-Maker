@@ -1,35 +1,25 @@
 #Paycore v1.0
 #it contain all the def functions for the source code
-##############modules cheeker###########
-class modules():
-	#1-socket
-	def socket_module_cheeke():
-		try :
-			import socket as socket
-		except :
-			import pip
-			pip.main(["install", "socket"])
-			import socket as socket
-		#2-webbrowser
-	def webbrowser_moudule_cheeker():
-		try:
-			from webbrowser import open
-		except:
-			import pip
-			pip.main(["install","webbrowser"])
-			from webbrowser import open
 ########importing the modules########
-
+from webbrowser import open 
 import os
 import sys
 import time
-modules.socket_module_cheeke()
-modules.webbrowser_moudule_cheeker()
 from Payload import *
 from core.banner import *
-############getting the lhost#################
-lhost = socket.gethostbyname(socket.gethostname())
+import subprocess
+import pkg_resources
+############cheekng the module############
+required = {'socket', 'webbrowser'}
+installed = {pkg.key for pkg in pkg_resources.working_set}
+missing = required - installed
 
+if missing:
+    python = sys.executable
+    subprocess.check_call([python, '-m', 'pip', 'install', missing], stdout=subprocess.DEVNULL)
+############getting the lhost#################
+
+lhost = socket.gethostbyname(socket.gethostname)
 
 ############def functions#############
 
@@ -47,8 +37,6 @@ def slowprint(z):
 		sys.stdout.flush()
 		time.sleep(0.01)
 
-
-
 def paymak():
 	os.system("clear")
 	print("\033[36m==================[>>"+"\033[35m making the apk payload"+"\033[36m<<]==================")
@@ -60,9 +48,7 @@ def paymak():
 		time.sleep(2)
 		os.system("clear")
 		return start()
-	
 	else :
-		print('he;;')
 		time.sleep(4)
 		os.system("clear")
 		return paymak()
@@ -84,9 +70,9 @@ def command():
 	x = input(" \033[36m  \n PaMake]=>> "+"\033[37m")
 	if x == "00":
 		os.system("clear")
-		return payload()
+		return start()
 	else:
-	    print("\033[31m Wrong Input")
+	    print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+x+"\033[31m it not found")
 	    time.sleep(1)
 	    os.system("clear")
 	    return command()
@@ -115,7 +101,7 @@ def youtube():
 		elif os_cheeke1 == "3":
 			webbrowser.open("https://www.youtube.com/channel/UCfD0KLgqBqvUzJsTGwqG1vQ")
 		elif os_cheeke1 == "00":
-			return payload()
+			return youtube()
 		else :
 			print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+os_cheeke+"\033[31m it not found")
 			time.sleep(1)
@@ -137,7 +123,7 @@ def youtube():
 		elif os_cheeke2 == "3":
 			webbrowser.open("https://www.facebook.com/Said_technologie-111339843954624/")
 		elif os_cheeke == "00":
-			return payload()
+			return youtube()
 		else :
 			print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+os_cheeke2+"\033[31m it not found")
 			time.sleep(1)
@@ -160,18 +146,18 @@ def youtube():
 			webbrowser.open("https://github.com/said-technologie")
 		elif os_cheeke3 == "00":
 			os.system("clear")
-			return payload()
+			return youtube()
 		else :
 			print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+os_cheeke3+"\033[31m it not found")
 			time.sleep(1)
 			os.system("clear")
-			return payload()
+			return youtube()
 	elif cha_cheeke == "00":
-		return payload()
+		return start()
 	else :
 		print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+cha_cheeke+"\033[31m it not found")
 		time.sleep(2)
-		return payload()
+		youtube()
 
 def start():
 	os.system("clear")
