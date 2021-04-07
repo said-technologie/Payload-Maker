@@ -2,3 +2,4 @@ socket
 webbrowser
 pkg_resources
 subprocess
+requests

