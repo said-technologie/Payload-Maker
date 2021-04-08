@@ -53,7 +53,7 @@ def paymak():
 		os.system("clear")
 		return start()
 	else :
-		print('\033[36m ['+'\033[31m-'+'\033m[36m]'+'\033[31m Wrong input')
+		print("\033[35m ["+"\033[31m!"+"\033[35m]"+"\033[33m the input have to be a number not a string")
 		time.sleep(4)
 		os.system("clear")
 		return paymak()
@@ -182,10 +182,13 @@ def start():
 			print("\033[36m  "+r"        exit                                       it will exit the programme")
 		elif options_cheeker == "set payload":
 			try:
+				print("\033[32m cheking the conection ...")
 				conn = requests.get("http://www.google.com").status_code
 				paymak()
 			except:
 				print("\033[31m connection error"+"\033[33m try to connect to your network before chosing this option")
+				time.sleep(4)
+				return start()
 		elif options_cheeker == "show options":
 			command()
 		elif options_cheeker == "show cre_chann":
