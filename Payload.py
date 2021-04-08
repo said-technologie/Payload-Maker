@@ -7,9 +7,6 @@ import time
 import sys
 from core.Paycore import *
 from core.banner import *
-import subprocess
-import pkg_resources
-
 ############the programme############
 def payload():
     os.system("clear")

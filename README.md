@@ -3,6 +3,7 @@
 <h4><h4>
   this script will help to make an apk payload using the METSAPLOIT without any harde work 
   IT MAY NOT BE WORKNG ON TERMUX, WINDOWS AND MAC SOME TIMES BUT I WILL TRY MY BEST TO MAKE IT AVAILABLE FOR ALL
+
 # install on linux system
   
  
@@ -20,7 +21,13 @@ cd Payload-Maker
  
    python Payload.py
    
-   
+# requarments
+you will ned this modules to use the programme
+<h5><h5>
+socket
+webbrowser
+requests
+
 # find me on
 
   YouTube : https://youtube.com/channel/UCfD0KLgqBqvUzJsTGwqG1vQ

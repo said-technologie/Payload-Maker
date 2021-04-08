@@ -1,16 +1,14 @@
 #Paycore v1.0
 #it contain all the def functions for the source code
 ########importing the modules########
-from webbrowser import open 
+from webbrowser import *
 import os
 import sys
 import time
 from Payload import *
 from core.banner import *
-import subprocess
-import pkg_resources
 import requests
-############cheekng the module############
+############importing socket module############
 
 import socket 
 from socket import gethostbyname , gethostname
