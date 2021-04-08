@@ -21,7 +21,7 @@ cd Payload-Maker
  
    python Payload.py
    
-# requarments
+# requirements
 you will ned this modules to use the programme
 <h5><h5>
 socket
