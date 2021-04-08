@@ -15,18 +15,20 @@ git clone https://github.com/said-technologie/Payload-Maker.git
  
 cd Payload-Maker 
  
-   pip install socket or pip install -r requirements.txt
+pip install -r requirements.txt
  
-   python setup.py
+python setup.py
  
-   python Payload.py
+python Payload.py
    
 # requarments
 you will ned this modules to use the programme
-<h5><h5>
+<h5>
 socket
 webbrowser
 requests
+<h5>
+
 
 # find me on
 
