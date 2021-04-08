@@ -1,9 +1,9 @@
 
 # Payload-Maker
 <h4><h4>
-  this script will help to make an apk payload using tye METSAPLOIT without doing anything 
-
-# install on termux 
+  this script will help to make an apk payload using the METSAPLOIT without any harde work 
+  IT MAY NOT BE WORKNG ON TERMUX, WINDOWS AND MAC SOME TIMES BUT I WILL TRY MY BEST TO MAKE IT AVAILABLE FOR ALL
+# install on linux system
   
  
 pkg install python
@@ -14,9 +14,9 @@ git clone https://github.com/said-technologie/Payload-Maker.git
  
 cd Payload-Maker 
  
-   pip install socket or pip install - r requirements.txt
+   pip install socket or pip install -r requirements.txt
  
-   python ressource_installer.py
+   python setup.py
  
    python Payload.py
    

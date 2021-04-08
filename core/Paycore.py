@@ -181,13 +181,11 @@ def start():
 			print("\033[36m  "+r"        clear                                       it will clear the window")
 			print("\033[36m  "+r"        exit                                       it will exit the programme")
 		elif options_cheeker == "set payload":
-			conn = requests.get('https://www.google.com/').status_code
-			if conn == 200 :
+			try:
+				conn = requests.get("http://www.google.com").status_code
 				paymak()
-			else :
-				print ("\033[31m Error try to "+"\033mconnect"+"\033[32m Wi-fi "+"\033[31before using this option")
-				time.sleep(3)
-				return start()
+			except:
+				print("\033[31m connection error"+"\033[33m try to connect to your network before chosing this option")
 		elif options_cheeker == "show options":
 			command()
 		elif options_cheeker == "show cre_chann":
