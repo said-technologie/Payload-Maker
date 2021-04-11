@@ -15,11 +15,11 @@ git clone https://github.com/said-technologie/Payload-Maker.git
  
 cd Payload-Maker 
  
-pip install -r requirements.txt
+pip3 install -r requirements.txt
  
-python setup.py
+python3 setup.py
  
-python Payload.py
+python3 Payload.py
    
 # requirements
 you will ned this modules to use the programme
